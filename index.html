@@ -7,6 +7,25 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #F7F5FF; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
   </style>
+  <script>
+    // Link tracking. A tagged link (…/?v=CODE) tells /api/visit that this code
+    // opened the page; the visits show up at /api/stats. No cookies, nothing
+    // kept in the browser, and any failure is ignored so the page still loads.
+    (function () {
+      try {
+        var params = new URLSearchParams(location.search);
+        var code = params.get('v');
+        if (!code) return;
+        fetch('/api/visit?v=' + encodeURIComponent(code) +
+              '&p=' + encodeURIComponent(location.pathname),
+              { method: 'POST', keepalive: true }).catch(function () {});
+        // Drop the code from the address bar so the visitor does not carry it
+        // into a bookmark or a forward.
+        if (history.replaceState) history.replaceState({}, '', location.pathname);
+      } catch (e) {}
+    })();
+  </script>
+
   <noscript>
     <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
       This page requires JavaScript to display.

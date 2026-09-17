@@ -1,0 +1,4 @@
+{
+  "_comment": "Maps the ?v= code in a link to who you sent it to. Codes not listed here still get logged, they just show up without a label.",
+  "demo": "Example row — delete me"
+}
