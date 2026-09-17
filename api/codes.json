@@ -1,4 +1,13 @@
 {
-  "_comment": "Maps the ?v= code in a link to who you sent it to. Codes not listed here still get logged, they just show up without a label.",
-  "demo": "Example row — delete me"
+  "_comment": "Maps the ?v= code in a link to who you sent it to. Codes not listed here still get logged, they just show up without a label. Add a row whenever you send a link, not afterwards.",
+  "li": "LinkedIn profile link",
+  "sig": "Email signature",
+  "cv": "CV / PDF attachment",
+  "card": "Business card / QR",
+  "x-g75p5": "unassigned",
+  "x-94q1m": "unassigned",
+  "x-bsn6c": "unassigned",
+  "x-gk3x8": "unassigned",
+  "x-v08f4": "unassigned",
+  "x-jgzbv": "unassigned"
 }
